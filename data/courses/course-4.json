@@ -21,132 +21,132 @@
         "lesson_id": 3,
         "title": "Variables in C",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-3/index.html"
       },        {
         "lesson_id": 4,
         "title": "Arrays",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-4/index.html"
       },        {
         "lesson_id": 5,
         "title": "String",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-5/index.html"
       },        {
         "lesson_id": 6,
         "title": "Functions",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-6/index.html"
       },        {
         "lesson_id": 7,
         "title": "C Library Functions",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-7/index.html"
       },        {
         "lesson_id": 8,
         "title": "Common Functions Pitfalls",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-8/index.html"
       },        {
         "lesson_id": 9,
         "title": "Control Flow",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-9/index.html"
       },        {
         "lesson_id": 10,
         "title": "Loops with Control Flow",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-10/index.html"
       },        {
         "lesson_id": 11,
         "title": "Variables and Data Types",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-11/index.html"
       },        {
         "lesson_id": 12,
         "title": " Recursion",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-12/index.html"
       },        {
         "lesson_id": 13,
         "title": "Header Files",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-13/index.html"
       },        {
         "lesson_id": 14,
         "title": "Intro To Memory",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-14/index.html"
       },        {
         "lesson_id": 15,
         "title": "Intro to Pointers",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-15/index.html"
       },        {
         "lesson_id": 16,
         "title": "Variables and Data Types",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-15/index.html"
       },        {
         "lesson_id": 17,
         "title": "Variables and Data Types",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-16/index.html"
       },        {
         "lesson_id": 18,
         "title": "Variables and Data Types",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-17/index.html"
       },        {
         "lesson_id": 19,
         "title": "Variables and Data Types",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-18/index.html"
       },        {
         "lesson_id": 20,
         "title": "Variables and Data Types",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-19/index.html"
       },        {
         "lesson_id": 21,
         "title": "Variables and Data Types",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-20/index.html"
       },        {
         "lesson_id": 22,
         "title": "Variables and Data Types",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-21/index.html"
       },        {
         "lesson_id": 23,
         "title": "Variables and Data Types",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-22/index.html"
       },        {
         "lesson_id": 24,
         "title": "Variables and Data Types",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-23/index.html"
       },        {
         "lesson_id": 25,
         "title": "Variables and Data Types",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-24/index.html"
       },        {
         "lesson_id": 26,
         "title": "Variables and Data Types",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-25/index.html"
       },        {
         "lesson_id": 27,
         "title": "Variables and Data Types",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-26/index.html"
       },        {
         "lesson_id": 28,
         "title": "Variables and Data Types",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-27/index.html"
       },        {
         "lesson_id": 29,
         "title": "Variables and Data Types",
@@ -156,22 +156,22 @@
         "lesson_id": 30,
         "title": "Variables and Data Types",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-28/index.html"
       },        {
         "lesson_id": 31,
         "title": "Variables and Data Types",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-29/index.html"
       },        {
         "lesson_id": 32,
         "title": "Variables and Data Types",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-30/index.html"
       },        {
         "lesson_id": 33,
         "title": "Variables and Data Types",
         "description": "Understand the various data types and how to use them in C.",
-        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-2/index.html"
+        "link": "/content/paths/foundations/courses/programminginc/lessons/lesson-31/index.html"
       }
     ],
     "projects": [

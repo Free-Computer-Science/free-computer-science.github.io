@@ -1,8 +1,8 @@
 {
     "id": 1,
     "path_id": 1,
-    "title": "EXAMPLE",
-    "description": "EXAMPLE",
+    "title": "Introduction to Programming",
+    "description": "A Beginner's Introduction to Computer Science and Programming",
     "link": "/content/paths/foundations/courses/algorithms/index.html",
     "lessons": [
       {

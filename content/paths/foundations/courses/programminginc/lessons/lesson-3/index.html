@@ -1,0 +1,397 @@
+<h1 id="the-very-basics-of-c">The Very Basics of C</h1>
+<p><strong>lesson objective: Today we will look at variables and basic routines in C</strong></p>
+<p>Rather than jam-packing each lesson with ideas, I want to keep it as atomic as possible. C is a different animal from
+    Java or Python and this means people get lost or confused about how C functions. Similar to our Java and Python
+    courses, there will be exercises and quizzes at the end of Each Unit</p>
+<h2 id="key-points">Key Points</h2>
+<ol>
+    <li>Everything in C is a number, ever type, every array, every variable can be converted into a number. Now, this
+        doesn&#39;t mean you are automatically going to only use numbers, just that the compilers and interal workings
+        of c see everything as numbers. </li>
+    <li>What C outputs is an observable state and it can be described as an abstract state machine. We&#39;ll look more
+        into that later in our compilers class, but for now, just know that c functions this way.</li>
+    <li>All types are static, meaning once a function or variable has a type, that type cannot change. </li>
+</ol>
+<p>This isn&#39;t too dissimilar to Java, but there are some key things to takeaway: </p>
+<ol>
+    <li>No objects and methods. This may be new to you completely, but you will get the hang of it. If you want to bag
+        up your functions and variables into a data structure of sorts, we&#39;ll look at how you could do that.</li>
+    <li>No memory management. This is key. You&#39;ll see how that impacts things later on, but from now on you will
+        have to manage your own memory. While this seems awful, it is better you learn how memory is managed in a manual
+        way.</li>
+</ol>
+<p>We have two &quot;basic&quot; set of types: Basic types and derived types:</p>
+<h3 id="basic-types">Basic types</h3>
+<ol>
+    <li>Integer Types</li>
+</ol>
+<p>C provides a range of integer types to support various sizes and representations (signed and unsigned):</p>
+<p>int: The standard integer type, typically 32 bits on modern systems, though the size can vary depending on the
+    architecture. It can store both positive and negative values.</p>
+<p>unsigned int: An integer type that only stores non-negative values (including zero).</p>
+<p>C provides other integer types that guarantee specific sizes:</p>
+<p>short (often 16 bits).
+    long (at least 32 bits, sometimes 64 bits).
+    long long (at least 64 bits).</p>
+<p>For each of these types, there&#39;s also an unsigned version that can store only non-negative values, allowing the
+    range to be extended:</p>
+<p>unsigned short
+    unsigned long
+    unsigned long long</p>
+<p>The size of each type can be found using the sizeof operator, which returns the number of bytes.</p>
+<ol>
+    <li>Floating-Point Types</li>
+</ol>
+<p>C supports floating-point numbers (decimal values) with the following types:</p>
+<p>float: Typically 32 bits, single precision floating-point type.
+    double: Typically 64 bits, double precision floating-point type.
+    long double: Extended precision floating-point type. The size of long double can vary but is often greater than 64
+    bits on some platforms.</p>
+<p>Floating-point types are used for representing real numbers with fractional parts. The precision of these types
+    increases from float to double to long double.</p>
+<ol>
+    <li>Character Types</li>
+</ol>
+<p>C provides character types for storing characters and small integers:</p>
+<p>char: A type that typically occupies 1 byte (8 bits). It can store a character (as per the ASCII or UTF-8 encoding)
+    or a small integer.
+    signed char: An explicitly signed version of char. It stores small integer values and can represent negative values.
+    unsigned char: An unsigned version of char that can only store non-negative values.</p>
+<p>In C, a char is essentially a small integer type, but it is typically used to store and manipulate individual
+    characters (e.g., for strings).</p>
+<ol>
+    <li>Boolean Type</li>
+</ol>
+<p>In C99 and later, C includes a Boolean type:</p>
+<p>_Bool: A type that represents boolean values (true or false).
+    In stdbool.h, _Bool is defined as bool, and true/false are defined as macros.</p>
+<p>Before C99, programmers often used integers (int) to represent Boolean values, where 0 was considered false and any
+    non-zero value was considered true.</p>
+<ol>
+    <li>Void Type</li>
+</ol>
+<p>void: This is used to indicate the absence of any value.
+    void is commonly used for functions that don’t return a value.
+    void* is a generic pointer type that can point to any data type, which makes it useful in functions like malloc().
+</p>
+<h3 id="other-simple-types">other simple types</h3>
+<p>In addition to the basic and derived types, C provides several specialized types that are commonly used for specific
+    purposes like measuring time, memory sizes, and platform-independent data manipulation. These types are defined in
+    standard headers and are crucial for writing portable and efficient programs. Let’s explore some of the most
+    important ones:</p>
+<ol>
+    <li>size_t</li>
+</ol>
+<p>Description: size_t is an unsigned integer type used to represent the size of objects in bytes. It is typically
+    returned by the sizeof operator and is widely used in memory-related functions like malloc, calloc, and array
+    indexing.</p>
+<p>Declared in: <stddef.h> and <stdlib.h>.</p>
+<p>Why size_t?: The size of size_t is platform-dependent but always large enough to represent the size of any object in
+    memory. On a 32-bit system, it’s typically 32 bits, and on a 64-bit system, it’s 64 bits.</p>
+<p>Example:</p>
+<p>c</p>
+<p>size_t size = sizeof(int); // Returns the size of an int in bytes
+    void<em> ptr = malloc(10 </em> sizeof(int)); // Allocate memory for 10 integers</p>
+<ol>
+    <li>
+        <p>ptrdiff_t</p>
+        <p>Description: ptrdiff_t is a signed integer type used to represent the difference between two pointers. This
+            is useful in pointer arithmetic when you subtract one pointer from another.</p>
+        <p>Declared in: <stddef.h>.</p>
+        <p>Why ptrdiff_t?: Like size_t, it is platform-dependent, but since it is signed, it can represent negative
+            differences between pointers, making it more suitable for pointer subtraction.</p>
+    </li>
+</ol>
+<p>Example:</p>
+<p>c</p>
+<p>int arr[10];
+    ptrdiff_t diff = &amp;arr[5] - &amp;arr[0]; // Calculates the difference in positions</p>
+<ol>
+    <li>
+        <p>time_t</p>
+        <p>Description: time_t is an arithmetic type used to represent time in seconds since the Unix epoch (00:00:00
+            UTC on January 1, 1970). It is used in time-related functions like time() and difftime().</p>
+        <p>Declared in: <time.h>.</p>
+        <p>Why time_t?: It provides a platform-independent way of representing time. The exact type may vary (sometimes
+            long, long long, or another integer type), but it can represent large enough values to handle modern
+            timekeeping.</p>
+    </li>
+</ol>
+<p>Example:</p>
+<p>c</p>
+<p>time_t now = time(NULL); // Get the current time
+    printf(&quot;Current time: %ld\n&quot;, now);</p>
+<ol>
+    <li>
+        <p>clock_t</p>
+        <p>Description: clock_t is a type used to represent processor time. It is often used to measure the amount of
+            CPU time consumed by a program.</p>
+        <p>Declared in: <time.h>.</p>
+        <p>Why clock_t?: It represents clock ticks, not real time. The number of clock ticks per second is
+            platform-dependent and can be retrieved using the constant CLOCKS_PER_SEC.</p>
+    </li>
+</ol>
+<p>Example:</p>
+<p>c</p>
+<p>clock_t start = clock();
+    // Code to measure
+    clock_t end = clock();
+    double elapsed_time = (double)(end - start) / CLOCKS_PER_SEC;
+    printf(&quot;Elapsed CPU time: %f seconds\n&quot;, elapsed_time);</p>
+<ol>
+    <li>
+        <p>uintptr_t and intptr_t</p>
+        <p>Description: These types are used to hold integer values that are large enough to store a pointer. uintptr_t
+            is unsigned, while intptr_t is signed. These types are useful when you need to perform arithmetic on
+            pointers or store pointer values in integers.</p>
+        <p>Declared in: <stdint.h>.</p>
+        <p>Why uintptr_t and intptr_t?: They provide a way to perform pointer arithmetic and conversions in a
+            platform-independent manner.</p>
+    </li>
+</ol>
+<p>Example:</p>
+<p>c</p>
+<p>uintptr_t addr = (uintptr_t)ptr; // Convert a pointer to an unsigned integer</p>
+<ol>
+    <li>
+        <p>off_t</p>
+        <p>Description: off_t is a type used to represent file sizes and offsets in files. It is commonly used with file
+            I/O functions like lseek() to manipulate large files.</p>
+        <p>Declared in: <unistd.h> or <sys /types.h>, depending on the platform.</p>
+        <p>Why off_t?: It is specifically designed to handle large file offsets, especially in systems where file sizes
+            can exceed 2 GB.</p>
+    </li>
+</ol>
+<p>Example:</p>
+<p>c</p>
+<p>off_t offset = lseek(fd, 0, SEEK_END); // Move to the end of a file</p>
+<ol>
+    <li>
+        <p>ssize_t</p>
+        <p>Description: ssize_t is a signed integer type that is used to represent the size of objects or the result of
+            functions that can return either a positive size or a negative value to indicate an error (e.g., read()).
+        </p>
+        <p>Declared in: <unistd.h>.</p>
+        <p>Why ssize_t?: While size_t is always unsigned, ssize_t can represent negative values, which is important when
+            functions need to return error codes, like the number of bytes read by read().</p>
+    </li>
+</ol>
+<p>Example:</p>
+<p>c</p>
+<p>ssize_t bytes_read = read(fd, buffer, sizeof(buffer)); // Can return -1 on error</p>
+<ol>
+    <li>dev_t, ino_t, mode_t</li>
+</ol>
+<p>These types are often used in system programming, especially for working with file systems and devices:</p>
+<pre><code>dev_<span class="hljs-variable">t:</span> Represents device IDs (used <span class="hljs-keyword">to</span> uniquely identify devices).
+ino_<span class="hljs-variable">t:</span> Represents inode numbers, which are used <span class="hljs-keyword">to</span> identify <span class="hljs-keyword">files</span> within <span class="hljs-keyword">a</span> <span class="hljs-keyword">file</span> <span class="hljs-built_in">system</span>.
+mode_<span class="hljs-variable">t:</span> Represents <span class="hljs-keyword">file</span> modes (permissions).
+</code></pre>
+<p>These types are typically defined in system-specific headers like <sys /types.h> and are used in system calls like
+        stat() and chmod().
+        Example:</p>
+<pre><code class="lang-c">struct stat st<span class="hljs-comment">;</span>
+stat(<span class="hljs-string">"somefile"</span>, <span class="hljs-symbol">&amp;st</span>)<span class="hljs-comment">;</span>
+printf(<span class="hljs-string">"Inode number: %ld\n"</span>, (<span class="hljs-name">ino_t</span>)st.st_ino)<span class="hljs-comment">;</span>
+</code></pre>
+<ol>
+    <li>
+        <p>pid_t</p>
+        <p>Description: pid_t is used to represent process IDs. It is returned by functions like getpid() and used in
+            process management system calls like fork() and wait().</p>
+        <p>Declared in: <sys /types.h>.</p>
+    </li>
+</ol>
+<p>Example:</p>
+<pre><code class="lang-c">pid_t pid = fork<span class="hljs-comment">()</span>;
+<span class="hljs-keyword">if</span> <span class="hljs-comment">(pid == 0)</span> {
+<span class="hljs-comment">// Child process</span>
+}
+</code></pre>
+<ol>
+    <li>
+        <p>sig_atomic_t</p>
+        <p>Description: sig_atomic_t is a type used to represent variables that can be safely accessed in signal
+            handlers. It is the smallest integer type that can be read and written atomically.</p>
+        <p>Declared in: <signal.h>.</p>
+    </li>
+</ol>
+<p>Example:</p>
+<p>c</p>
+<p>volatile sig_atomic_t flag = 0;</p>
+<p>Summary of Commonly Used Types:</p>
+<pre><code>size_t: <span class="hljs-keyword">For</span> sizes <span class="hljs-keyword">of</span> objects <span class="hljs-keyword">in</span> bytes.
+ptrdiff_t: <span class="hljs-keyword">For</span> differences between pointers.
+time_t: <span class="hljs-keyword">For</span> representing calendar <span class="hljs-built_in">time</span>.
+clock_t: <span class="hljs-keyword">For</span> representing processor <span class="hljs-built_in">time</span>.
+uintptr_t/intptr_t: <span class="hljs-keyword">For</span> storing pointer values <span class="hljs-keyword">in</span> integers.
+off_t: <span class="hljs-keyword">For</span> <span class="hljs-keyword">file</span> offsets.
+ssize_t: <span class="hljs-keyword">For</span> <span class="hljs-built_in">signed</span> size values, often used <span class="hljs-keyword">in</span> system calls.
+pid_t, dev_t, ino_t, mode_t: <span class="hljs-keyword">For</span> system programming.
+</code></pre>
+<p>These types are part of the broader C standard library and provide a powerful way to handle system-level tasks,
+    timekeeping, and memory management in a platform-independent way.</p>
+<h2 id="implicit-conversion">Implicit Conversion</h2>
+<p>Implicit conversions in C, also known as <strong>type promotion</strong> or <strong>automatic type
+        conversion</strong>, occur when the compiler automatically converts one data type to another during an operation
+    without the programmer needing to explicitly cast it. This process is guided by certain rules defined by the C
+    standard to ensure the result of expressions is handled consistently and safely.</p>
+<p>Let&#39;s break down the key aspects of implicit conversions between basic types in C:</p>
+<h3 id="1-integer-promotion-">1. <strong>Integer Promotion</strong></h3>
+<p>Whenever smaller integer types (<code>char</code>, <code>short</code>, etc.) are involved in expressions, they are
+    promoted to <code>int</code> or <code>unsigned int</code> before the operation is performed. This is known as
+    <strong>integer promotion</strong>.</p>
+<ul>
+    <li><strong>Signed integer types</strong> (<code>char</code>, <code>short</code>) are promoted to <code>int</code>.
+    </li>
+    <li><strong>Unsigned integer types</strong> (<code>unsigned char</code>, <code>unsigned short</code>) are promoted
+        to <code>unsigned int</code>.</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code class="lang-c"><span class="hljs-keyword">char</span> a = <span class="hljs-number">10</span>;
+<span class="hljs-keyword">short</span> b = <span class="hljs-number">20</span>;
+<span class="hljs-keyword">int</span> result = a + b;  <span class="hljs-comment">// Both 'a' and 'b' are promoted to 'int' before addition</span>
+</code></pre>
+<h3 id="2-usual-arithmetic-conversions-">2. <strong>Usual Arithmetic Conversions</strong></h3>
+<p>When different types are used in the same arithmetic operation, the <strong>usual arithmetic conversions</strong>
+    occur. These conversions ensure that both operands are of the same type before the operation is performed.</p>
+<h4 id="the-rules-">The Rules:</h4>
+<ol>
+    <li><strong>Both operands are promoted to the same type</strong>: If the types differ, C promotes the smaller type
+        to the larger type.</li>
+    <li><strong>Integer vs. Floating-point</strong>: If one operand is a floating-point type (<code>float</code>,
+        <code>double</code>, <code>long double</code>), the other operand is promoted to a floating-point type.<ul>
+            <li>If one operand is <code>float</code>, the other operand is promoted to <code>float</code>.</li>
+            <li>If one operand is <code>double</code>, the other operand is promoted to <code>double</code>.</li>
+            <li>If one operand is <code>long double</code>, the other operand is promoted to <code>long double</code>.
+            </li>
+        </ul>
+    </li>
+</ol>
+<h4 id="example-">Example:</h4>
+<pre><code class="lang-c"><span class="hljs-built_in">int</span> a = <span class="hljs-number">5</span>;
+<span class="hljs-built_in">float</span> b = <span class="hljs-number">2</span>.<span class="hljs-number">5</span>;
+<span class="hljs-built_in">float</span> <span class="hljs-literal">result</span> = a + b;  // 'a' <span class="hljs-keyword">is</span> implicitly converted to '<span class="hljs-built_in">float</span>', then addition <span class="hljs-keyword">is</span> performed
+</code></pre>
+<h3 id="3-implicit-conversions-between-integer-types-">3. <strong>Implicit Conversions Between Integer Types</strong>
+</h3>
+<p>When performing operations on different integer types, C follows the rule of <strong>integer promotion</strong> to
+    ensure that both operands are of the same type before the operation.</p>
+<h4 id="example-">Example:</h4>
+<pre><code class="lang-c"><span class="hljs-keyword">int</span> a = <span class="hljs-number">100</span>;
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">short</span> b = <span class="hljs-number">10</span>;
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> result = a + b;  <span class="hljs-comment">// 'b' is promoted to 'int', but the result is stored in an unsigned int</span>
+</code></pre>
+<ul>
+    <li><strong>Signed to unsigned conversion</strong>: If a signed integer and an unsigned integer are used in the same
+        expression, the signed integer is converted to an unsigned integer.</li>
+    <li><strong>Widening conversions</strong>: If operands are of different widths, the narrower type is promoted to the
+        wider type (e.g., <code>short</code> to <code>int</code> or <code>long</code>).</li>
+</ul>
+<h4 id="unsigned-and-signed-type-conversions-">Unsigned and signed type conversions:</h4>
+<p>If a signed and an unsigned type are combined in an expression, the signed type is converted to the unsigned type.
+    This can lead to unexpected results when negative values are involved.</p>
+<p><strong>Example</strong>:</p>
+<pre><code class="lang-c"><span class="hljs-keyword">int</span> a = <span class="hljs-number">-5</span>;
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> b = <span class="hljs-number">10</span>;
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> result = a + b;  <span class="hljs-comment">// 'a' is converted to unsigned, leading to unexpected behavior</span>
+</code></pre>
+<h3 id="4-floating-point-conversions-">4. <strong>Floating-Point Conversions</strong></h3>
+<p>C provides implicit conversions between different floating-point types. The conversion occurs from a lower precision
+    type to a higher precision type, ensuring no loss of precision.</p>
+<ul>
+    <li><strong>Float to Double</strong>: When a <code>float</code> is used in an expression with a <code>double</code>,
+        the <code>float</code> is promoted to <code>double</code>.</li>
+    <li><strong>Double to Long Double</strong>: When a <code>double</code> is used in an expression with a
+        <code>long double</code>, the <code>double</code> is promoted to <code>long double</code>.</li>
+</ul>
+<h4 id="example-">Example:</h4>
+<pre><code class="lang-c"><span class="hljs-keyword">float</span> a = <span class="hljs-number">3.5f</span>;
+<span class="hljs-keyword">double</span> b = <span class="hljs-number">4.2</span>;
+<span class="hljs-keyword">double</span> result = a + b;  <span class="hljs-comment">// 'a' is promoted to 'double' before addition</span>
+</code></pre>
+<h3 id="5-void-pointers-">5. <strong>Void Pointers</strong></h3>
+<p>Implicit conversions are allowed between any pointer type and a <code>void*</code>. However, implicit conversions
+    from <code>void*</code> to a specific pointer type require an explicit cast.</p>
+<p><strong>Example</strong>:</p>
+<pre><code class="lang-c"><span class="hljs-built_in">int</span>* ptr;
+void* vptr = ptr;  // <span class="hljs-keyword">Implicit</span> conversion from <span class="hljs-string">'int*'</span> to <span class="hljs-string">'void*'</span>
+</code></pre>
+<h3 id="6-character-to-integer-promotion-">6. <strong>Character to Integer Promotion</strong></h3>
+<p>In C, <code>char</code> types (both signed and unsigned) are automatically promoted to <code>int</code> when used in
+    expressions. This allows arithmetic operations on characters, which are treated as their ASCII values.</p>
+<p><strong>Example</strong>:</p>
+<pre><code class="lang-c"><span class="hljs-built_in">char</span> ch = 'A';  // <span class="hljs-type">ASCII</span> value <span class="hljs-keyword">of</span> 'A' <span class="hljs-keyword">is</span> <span class="hljs-number">65</span>
+<span class="hljs-built_in">int</span> <span class="hljs-literal">result</span> = ch + <span class="hljs-number">1</span>;  // 'ch' <span class="hljs-keyword">is</span> promoted to '<span class="hljs-built_in">int</span>', so <span class="hljs-literal">result</span> <span class="hljs-keyword">is</span> <span class="hljs-number">66</span>
+</code></pre>
+<h3 id="7-rank-of-types-in-implicit-conversions-">7. <strong>Rank of Types in Implicit Conversions</strong></h3>
+<p>Types in C are ranked in terms of their size and precision. When an operation involves two different types, the type
+    with the higher rank is chosen as the common type. Here’s the ranking:</p>
+<ol>
+    <li><code>long double</code></li>
+    <li><code>double</code></li>
+    <li><code>float</code></li>
+    <li><code>unsigned long long</code></li>
+    <li><code>long long</code></li>
+    <li><code>unsigned long</code></li>
+    <li><code>long</code></li>
+    <li><code>unsigned int</code></li>
+    <li><code>int</code></li>
+</ol>
+<p>When operands have different types, the operand with the lower rank is converted to the type of the operand with the
+    higher rank.</p>
+<h4 id="example-">Example:</h4>
+<pre><code class="lang-c"><span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> a = <span class="hljs-number">1000</span>;
+<span class="hljs-keyword">int</span> b = <span class="hljs-number">-5</span>;
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> result = a + b;  <span class="hljs-comment">// 'b' is promoted to 'unsigned long long'</span>
+</code></pre>
+<h3 id="8-type-promotion-in-function-calls-">8. <strong>Type Promotion in Function Calls</strong></h3>
+<p>When passing arguments to a function that does not have a prototype (or if using <code>...</code> in variadic
+    functions like <code>printf</code>), <strong>default argument promotions</strong> occur:</p>
+<ul>
+    <li><code>char</code> and <code>short</code> are promoted to <code>int</code>.</li>
+    <li><code>float</code> is promoted to <code>double</code>.</li>
+</ul>
+<h4 id="example-">Example:</h4>
+<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">printValue</span><span class="hljs-params">(<span class="hljs-keyword">int</span> val)</span></span>;
+printValue(<span class="hljs-string">'A'</span>);  <span class="hljs-comment">// 'A' is promoted to 'int', passing the ASCII value (65)</span>
+</code></pre>
+<h3 id="9-constant-expressions-and-type-promotion-">9. <strong>Constant Expressions and Type Promotion</strong></h3>
+<p>In constant expressions, C promotes small integer constants to the appropriate type automatically. For example, a
+    literal like <code>5</code> is treated as an <code>int</code>, but it can be promoted to a wider type based on the
+    context.</p>
+<h4 id="example-">Example:</h4>
+<pre><code class="lang-c"><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> a = <span class="hljs-number">5</span>;  <span class="hljs-comment">// The constant 5 is implicitly promoted to 'long long'</span>
+</code></pre>
+<h3 id="10-potential-pitfalls-of-implicit-conversions-">10. <strong>Potential Pitfalls of Implicit Conversions</strong>
+</h3>
+<p>Implicit conversions can sometimes lead to unintended behavior, especially when converting between signed and
+    unsigned types or floating-point and integer types.</p>
+<ul>
+    <li><strong>Truncation</strong>: When converting from a floating-point type to an integer type, the fractional part
+        is truncated.</li>
+    <li><strong>Overflow</strong>: When converting a large unsigned integer to a signed integer, overflow can occur.
+    </li>
+    <li><strong>Loss of Precision</strong>: When converting a <code>double</code> to a <code>float</code>, precision may
+        be lost.</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code class="lang-c"><span class="hljs-keyword">double</span> x = <span class="hljs-number">5.7</span>;
+<span class="hljs-built_in">int</span> y = x;  // <span class="hljs-keyword">Implicit</span> conversion truncates the fractional part, so <span class="hljs-string">'y'</span> becomes <span class="hljs-number">5</span>
+</code></pre>
+<hr>
+<h3 id="summary-of-key-points-">Summary of Key Points:</h3>
+<ul>
+    <li><strong>Integer Promotion</strong>: Smaller integers are promoted to <code>int</code> or
+        <code>unsigned int</code>.</li>
+    <li><strong>Usual Arithmetic Conversions</strong>: Types are converted to a common type during arithmetic
+        operations.</li>
+    <li><strong>Integer and Floating-Point Conversions</strong>: Lower precision types are promoted to higher precision
+        types.</li>
+    <li><strong>Mixing Signed and Unsigned Types</strong>: Signed integers are converted to unsigned, which can lead to
+        unexpected results.</li>
+    <li><strong>Type Promotion in Function Calls</strong>: Small types like <code>char</code> and <code>short</code> are
+        promoted to <code>int</code> in function calls.</li>
+</ul>
+<p>Implicit conversions provide flexibility, but they can also introduce subtle bugs if not understood carefully,
+    especially when dealing with different integer types or floating-point precision issues.</p>

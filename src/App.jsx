@@ -7,6 +7,7 @@ import Team from "./components/static/footer/Team.jsx";
 import FAQ from "./components/static/footer/Faq.jsx";
 import Support from "./components/static/shared/Support.jsx";
 import Privacy from "./components/static/footer/Privacy.jsx";
+import Allpaths from "./components/pages/Allpaths.jsx";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/support" element={<Support />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/allpaths" element={<Allpaths />} />
         </Routes>
       </div>
       <Footer />

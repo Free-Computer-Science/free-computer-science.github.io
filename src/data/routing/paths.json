@@ -1,0 +1,15 @@
+{
+  "paths": [
+    {
+      "id": "path1",
+      "name": "Getting Started",
+      "courses": [
+        {
+          "id": "course1",
+          "name": "Programming In C",
+          "file": "course1.json"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+    "id": "course1",
+    "name": "C Programming Basics",
+    "page": "proginc",
+    "lessons": [
+      {
+        "id": "lesson1",
+        "name": "Introduction to C",
+        "component": "Lessonintrotoc"
+      }
+    ]
+  }
+  

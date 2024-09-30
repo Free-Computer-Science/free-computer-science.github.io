@@ -6,7 +6,7 @@ const Allpaths = () => {
         <h1>The paths</h1>
         <ul>
           <li>
-            <Link to="/foundations"><button>Foundations of Computer Science</button></Link>
+            <Link to="/foundations"><button>Introductory Computer Science</button></Link>
           </li>
         </ul>
       </div>

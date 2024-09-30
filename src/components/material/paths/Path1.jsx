@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 const Path1 = () => {
   return (
     <div>
-      <h1>Foundations of Computer Science</h1>
+      <h1>Introductory  Computer Science</h1>
 
       <ul>
         <li>

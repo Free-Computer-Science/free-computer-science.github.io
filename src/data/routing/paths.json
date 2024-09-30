@@ -2,7 +2,8 @@
   "paths": [
     {
       "id": "path1",
-      "name": "Getting Started",
+      "name": "Foundations of Computer Science",
+      "file":"path1.jsx",
       "courses": [
         {
           "id": "course1",

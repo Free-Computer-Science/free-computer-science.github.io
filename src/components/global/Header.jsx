@@ -14,7 +14,7 @@ const Header = () => {
           </div>
           <div>
             <div>
-              <Link to="/allpaths"><button>All Paths</button></Link>
+              <Link to="/alltrails"><button>All Paths</button></Link>
               <Link to= "/about"><button>About</button></Link>
               <Link to="/contribute"><button>Contribute</button></Link>
             </div>

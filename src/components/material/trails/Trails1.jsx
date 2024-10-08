@@ -19,11 +19,6 @@ const Path1 = () => {
         <li>
           <button>College Placement Preparation with Java</button>
         </li>
-        <li>
-          <Link to="/proginc">
-            <button>Programming in C</button>
-          </Link>
-        </li>
       </ul>
     </div>
   );

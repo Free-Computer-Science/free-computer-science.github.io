@@ -7,13 +7,14 @@ import Team from "./components/static/footer/Team.jsx";
 import FAQ from "./components/static/footer/Faq.jsx";
 import Support from "./components/static/shared/Support.jsx";
 import Privacy from "./components/static/footer/Privacy.jsx";
-//import all paths
-import Allpaths from "./components/material/Allpaths.jsx";
-import Path1 from "/src/components/material/paths/Path1.jsx";
+//import all trails
+import Alltrails from "./components/material/Alltrails.jsx";
+import Trails1 from "/src/components/material/trails/Trails1.jsx";
+import Trail2 from "/src/components/material/trails/Trail2.jsx";
 
 //import all courses
 import Course1 from "/src/components/material/courses/Gettingstarted.jsx";
-import Course4 from "/src/components/material/courses/Proginc.jsx";
+import Progincbasics from "/src/components/material/courses/Proginc.jsx";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -30,10 +31,13 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/support" element={<Support />} />
           <Route path="/privacy" element={<Privacy />} />
-          <Route path="/allpaths" element={<Allpaths />} />
-          <Route path="/foundations" element={<Path1 />} />
+          {/*Trail Routes */}
+          <Route path="/alltrails" element={<Alltrails />} />
+          <Route path="/foundations" element={<Trails1 />} />
+          <Route path="/systems" element={<Trail2 />} />
+          {/*Camp Routes */}
           <Route path="gettingstarted/*" element={<Course1 />} />
-          <Route path="/proginc" element={<Course4 />} />
+          <Route path="progincbasics/*" element={<Progincbasics />} />
         </Routes>
       </div>
       <Footer />
@@ -50,32 +54,44 @@ const Home = () => (
       </h1>
       <div>
         <p>
-          Everything Computer Science Majors learn, open source and free to
-          learn
+          From Systems to Algorithms, learn core skills in Computer Science,
+          completely for free and with open source resources.
         </p>
       </div>
     </div>
     <div>
       <div>
         <div>
-          <h1>How it Works</h1>
+          <h1>It&apos;s Time to Start Your Journey...</h1>
           <p>
-            This site will function similarly The Odin Project, but rather than
-            focusing on software engineering, we&apos;ll dive into the theory,
-            math, and concepts that allow us to look deeper under the hood.
-            Using blue collar trades again: If a mechanic knows how to build an
-            engine, Computer Scienctists and Engineers know how to design one,
-            and understand the physics of how to make them better. This
-            isn&apos;t to say a mechanic can&apos;t know, it&apos;s just that their
-            domains are different!
+            Hiking a mountain is no easy task. Computers and Computer Systems
+            have grown incredibly complicated, vast, and completely connected to
+            our lives. Mobile Applications, websites, video games, even our cars
+            and equipment have technology embedded in them. However it can all
+            seem so complicated, scary, and out-of-reach: Most people don&apos;t
+            learn computer science unless they are in college, or work hard to
+            find and gather resources for themselves.
           </p>
-          <h1>HOWEVER...</h1>
           <p>
-            Right now, this site is work in progress, with new features being
-            added all the time. Please check back as we update the site with
-            more content, courses, pathes, and features that can make your
-            learning experience better!
+            Start your Journey here and learn the heart of how machines work,
+            how to program them, and learn what students learn in university
           </p>
+          <h1>Find your Trail</h1>
+          <p>
+            Learning computer science on your own can seem daunting, like
+            climbing a large moutain. If you want to start but don&apos;t know where
+            to begin, the Introductory Trail is right for you. If you are a high
+            school or secondary school student, there is a path geared towards
+            you! If you are no longer in high school or secondary school, we&apos;ll
+            dive a bit more deeper (although we won&apos;t tell anyone if you hiked
+            the first trail!).
+          </p>
+          <p>After completing the introductory trail a host of new, more challenging trails open up:</p>
+          <ul>
+            <li>Algorithms and Structures: The heart of programming</li>
+            <li>Systems: What makes your computer run, right now!</li>
+          </ul>
+          <p>Trails are being opened up all the time! We&apos;ll let you know when more do! Happy Climbing!</p>
         </div>
       </div>
     </div>
